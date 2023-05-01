@@ -20,8 +20,10 @@ public class HumanClassTests {
 
             ObjectMapper mapper = new ObjectMapper();
             Human human = mapper.readValue(isr, Human.class);
-
-            String petr = new String ("Пётр".getBytes("windows1251"), StandardCharsets.UTF_8);
+//Тест проходит, если только перекодировать литерал "Пётр" из UTF-8 в Windows-1251. В настройках IDEA везде где только
+//можно указал UTF-8. Литерал "Пётр" сравнивается с записью из файла human.json, который в UTF-8 (проверено).
+//И файл HumanClassTests.java, где литерал записан, также в кодировке UTF-8 (проверено). Можно ли как-то от перекодировки избавиться?
+            String petr = new String ("Пётр".getBytes(StandardCharsets.UTF_8), "windows-1251");
             Assertions.assertEquals(petr, human.getName());
             Assertions.assertEquals(40, human.getAge());
             Assertions.assertEquals(2, human.getChildren().size());
