@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringWriter;
 
 public class Main {
 
@@ -28,9 +27,5 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace(System.out);
         }
-
-
-
-
     }
 }
