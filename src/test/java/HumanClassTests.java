@@ -15,16 +15,16 @@ public class HumanClassTests {
     @DisplayName("Читаем объект Human is Json и проверяем")
     void jsonToHumanTest() {
         ClassLoader cl = this.getClass().getClassLoader();
-        try (InputStream is = cl.getResourceAsStream("human.json");
+        try (InputStream is = cl.getResourceAsStream("human.json"); //файл human.json в кодировке UTF-8
              InputStreamReader isr = new InputStreamReader(is)) {
 
             ObjectMapper mapper = new ObjectMapper();
-            Human human = mapper.readValue(isr, Human.class);
+            Human human = mapper.readValue(isr, Human.class); //импортируем объект Human из файла human.json
 //Тест проходит, если только перекодировать литерал "Пётр" из UTF-8 в Windows-1251. В настройках IDEA везде где только
 //можно указал UTF-8. Литерал "Пётр" сравнивается с записью из файла human.json, который в UTF-8 (проверено).
 //И файл HumanClassTests.java, где литерал записан, также в кодировке UTF-8 (проверено). Можно ли как-то от перекодировки избавиться?
-            String petr = new String ("Пётр".getBytes(StandardCharsets.UTF_8), "windows-1251");
-            Assertions.assertEquals(petr, human.getName());
+            String petr = new String ("Пётр".getBytes(StandardCharsets.UTF_8), "windows-1251"); //перекодируем
+            Assertions.assertEquals(petr, human.getName()); //сравниваем "Пётр" из строки выше с "Пётр" из файла human.json
             Assertions.assertEquals(40, human.getAge());
             Assertions.assertEquals(2, human.getChildren().size());
             Assertions.assertEquals("Olga", human.getChildren().get(0).getName());
