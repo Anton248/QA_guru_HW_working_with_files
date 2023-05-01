@@ -7,6 +7,7 @@ import ru.nikolski.Human;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class HumanClassTests {
 
@@ -20,7 +21,8 @@ public class HumanClassTests {
             ObjectMapper mapper = new ObjectMapper();
             Human human = mapper.readValue(isr, Human.class);
 
-            Assertions.assertEquals("Petr", human.getName());
+            String petr = new String ("Пётр".getBytes("windows1251"), StandardCharsets.UTF_8);
+            Assertions.assertEquals(petr, human.getName());
             Assertions.assertEquals(40, human.getAge());
             Assertions.assertEquals(2, human.getChildren().size());
             Assertions.assertEquals("Olga", human.getChildren().get(0).getName());

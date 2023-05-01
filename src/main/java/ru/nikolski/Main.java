@@ -2,17 +2,15 @@ package ru.nikolski;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.StringWriter;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
 
     public static void main(String[] args) {
 
         //создаем человека
-        Human petya = new Human(40, "Petr", "Petrov");
+        Human petya = new Human(40, "Пётр", "Петров");
         Human olya = new Human(20, "Olga", "Ivanova");
         Human vasya = new Human(15, "Vasiliy", "Petrov");
         petya.addChild(olya);
@@ -22,9 +20,9 @@ public class Main {
         try {
             File humanInFile = new File("src/test/resources/human.json");
             humanInFile.createNewFile();
-            FileWriter fw = new FileWriter(humanInFile);
+            OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(humanInFile), StandardCharsets.UTF_8);
             ObjectMapper mapper = new ObjectMapper();
-            mapper.writeValue(fw, petya);
+            mapper.writeValue(osw, petya);
         } catch (IOException e) {
             e.printStackTrace(System.out);
         }
