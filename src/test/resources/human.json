@@ -1,1 +1,19 @@
-{"age":40,"name":"Petr","surname":"Petrov","children":[{"age":20,"name":"Olga","surname":"Ivanova","children":null},{"age":15,"name":"Vasiliy","surname":"Petrov","children":null}]}
+{
+  "age": 40,
+  "name": "Petr",
+  "surname": "Petrov",
+  "children": [
+    {
+      "age": 20,
+      "name": "Olga",
+      "surname": "Ivanova",
+      "children": null
+    },
+    {
+      "age": 15,
+      "name": "Vasiliy",
+      "surname": "Petrov",
+      "children": null
+    }
+  ]
+}
