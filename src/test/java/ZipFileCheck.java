@@ -30,12 +30,12 @@ public class ZipFileCheck {
             List<String[]> allLines = csvReader.readAll();
             Assertions.assertEquals("1.csv", entryCSV.getName());
             Assertions.assertArrayEquals(new String[]{"year",
-                    "industry_code_ANZSIC",
-                    "industry_name_ANZSIC",
-                    "rme_size_grp",
-                    "variable",
-                    "value",
-                    "unit" },
+                            "industry_code_ANZSIC",
+                            "industry_name_ANZSIC",
+                            "rme_size_grp",
+                            "variable",
+                            "value",
+                            "unit"},
                     allLines.get(0));
             Assertions.assertEquals(16949, allLines.size());
 

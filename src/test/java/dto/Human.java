@@ -1,4 +1,4 @@
-package ru.nikolski;
+package dto;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
@@ -13,7 +13,8 @@ public class Human {
     private String surname;
     private List<Human> children;
 
-    public Human() {}
+    public Human() {
+    }
 
     public Human(int age, String name, String surname) {
         this.age = age;
@@ -22,7 +23,9 @@ public class Human {
     }
 
     public void addChild(Human child) {
-        if (children == null) {children = new ArrayList<>();}
+        if (children == null) {
+            children = new ArrayList<>();
+        }
         children.add(child);
     }
 
