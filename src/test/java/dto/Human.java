@@ -12,10 +12,6 @@ public class Human {
     private String name;
     private String surname;
     private List<Human> children;
-
-    public Human() {
-    }
-
     public Human(int age, String name, String surname) {
         this.age = age;
         this.name = name;
